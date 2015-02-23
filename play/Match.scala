@@ -22,6 +22,11 @@ object Match {
     case _ => "unkown tuple"
   }
 
+  def matchOption(o: Option[String]) = o match {
+    case Some(s) => s
+    case None => "none"
+  }
+
   def main(args: Array[String]) {
     assert(args.size == 2, "Usage: Match <i> <s>")
 
@@ -33,5 +38,7 @@ object Match {
     println(s"matchType(${s}): ${matchType(s)}")
     println(s"matchCaseClass(Case(${i}, ${s}): ${matchCaseClass(Case(i, s))}")
     println(s"matchTuple((${i}, ${s}): ${matchTuple((i, s))}")
+    println(s"matchOption(Option(${s})): ${matchOption(Option(s))}")
+    println(s"matchOption(None): ${matchOption(None)}")
   }
 }
